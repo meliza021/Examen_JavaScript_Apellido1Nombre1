@@ -1,0 +1,31 @@
+{
+  "campusArticles": [
+    {
+      "id": 1,
+      "title": "Delicias Caseras",
+      "summary": "te invitamos a probar toda delicia en nuestra panaderia.",
+      "content": "<p>Este sábado 3 de mayo,la panaderia Delicias Caseras va a tener un emotivo evento y es el que ma pan coma no paga nada que esperas no te lo pierdas y visita la pagina que te estan esperando para que tu seas el siguiente en ser el ganador <div>https://Delicias-Caseras.com/es/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.</div></p>",
+      "author": "Sofias Cardenas",
+      "date": "28 de abril, 2025",
+      "category": "Pasteleria"
+    },
+    {
+      "id": 2,
+      "title": "Pinochaso",
+      "summary": "un lugar con los precio mas bajos del pais.",
+      "content": "<p>Tras meses de trabajo intenso, el equipo pinochaso a estado trabajanod para traerte las mejores promociones que nunca podras ver e tu vida  acuerdate de visitarnos en nuestra pagina web si neceistas mas informacion.</p>",
+      "author": "Martines",
+      "date": "25 de abril, 2025",
+      "category": "Tienda"
+    },
+    {
+      "id": 3,
+      "title": "menos es mas",
+      "summary": "porque todo es barato..",
+      "content": "<p>ue donde se encuentra eso ... en donde tu quieras solo encuentra tu camino para llegar a nosotros</p>",
+      "author": "Pepe",
+      "date": "22 de abril, 2025",
+      "category": "mininegocio"
+    }
+  ]
+}
