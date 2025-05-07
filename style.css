@@ -1,16 +1,16 @@
 /* Estilos globales con tonalidades rosa */
 :root {
-    --primary-color: rgb(81, 81, 172); /* azul principal */
-    --primary-dark: #1f039c; /* azul oscuro */
-    --primary-light: #7a79c0; /* azul  claro */
-    --accent-color: #678bda; /* azul acento */
-    --bg-color: #a9a8cf; /* opcion poco utilizada */
+    --primary-color: pink; /* Rosa principal */
+    --primary-dark: #c71f66; /* Rosa oscuro */
+    --primary-light: #f8bbda; /* Rosa claro */
+    --accent-color: #f06292; /* Rosa acento */
+    --bg-color: #fff0f5; /* Lavanda muy pálido */
     --text-color: #4a4a4a;
     --text-light: #777777;
-    --border-color: #7d8ce6; /* azul pálido */
+    --border-color: #ffc0cb; /* Rosa pálido */
     --shadow-color: rgba(232, 62, 140, 0.15);
-    --hover-color: #231b64; /*azul muy claro para hover */
-    --active-color: #8190d4; /* azul claro para elementos activos */
+    --hover-color: #ffd6e7; /* Rosa muy claro para hover */
+    --active-color: #ffb6c1; /* Rosa claro para elementos activos */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 

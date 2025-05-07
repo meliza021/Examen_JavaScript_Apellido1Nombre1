@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>F1 Circuits 2025</title>
+    <link rel="stylesheet" href="/css/circuits.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script type="module" src="/components/AdminCircuitCard.js"></script>
+    <script type="module" src="/components/CircuitFormModal.js"></script>
+    <script type="module" src="/components/DeleteCircuitsModal.js"></script>
+    <script src="/js/admin-circuits.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-container__main-header">
+            <div class="main-header__logo">
+                <img src="/img/F1_2025_Logo-removebg-preview.png" alt="Formula 1 Logo">
+            </div>
+            <nav class="main-header__main-nav">
+                <nav class="main-header__main-nav">
+                    <a href="../html/pagina-2.html" class="main-nav__item">Inicio</a>
+                    <a href="pagina-2.html" class="main-nav__item">Eventos</a>
+                    <a href="index.html" class="main-nav__item">Registrar</a>
+                    <a href="admin-circuits.html"></a>
+                </nav>
+            </nav>
+        </header>
+        <main class="page-content">
+            <div class="page-content__main-title">
+                <span >bucaramanga emprende</span>
+            </div>
+            <section class="page-content__circuits-section">
+                <div class="circuits-section__subtitle">
+                    Nuestra plataforma esta diseñada para facilitar la gestion y promocion de eventos de Emprendimiento .
+                </div>
+
+
+                <div class="circuits-section__search-container">
+                    <input type="text" id="search-input" class="search-container__search-input" placeholder="Search for a circuit...">
+                    <span class="search-container__loading-spinner hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+                <div id="cards-container" class="circuits-section__cards-container"></div>
+            </section>
+            <a href="#" class="page-content__add-circuits-button primary-button">
+                <i class="fa-solid fa-plus"></i>
+                <span>Circuito</span>
+            </a>
+        </main>
+    </div>
+    <circuit-form-modal></circuit-form-modal>
+    <delete-circuits-modal></delete-circuits-modal>
+</body>
+
+</html>
