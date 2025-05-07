@@ -33,30 +33,30 @@ function loadFallbackData() {
   campusArticles = [
     {
       id: 1,
-      title: "Jornada de puertas abiertas en Ingeniería",
-      summary: "Visitas guiadas y charlas con profesores y estudiantes.",
-      content: "<p>Este sábado 3 de mayo, la Facultad de Ingeniería abrirá sus puertas...</p>",
+      title: "Feria \"Bucara Emprende\"",
+      summary: "2021-11-06",
+      content: "<p>2021-11-06</p>",
       author: "Oficina de Admisiones",
-      date: "28 de abril, 2025",
-      category: "Eventos"
+      date: "Salón Comunal del Barrio Bucaramanga, Comuna 8",
+      category: "Evento organizado por el IMEBU que reunió a más de 30 emprendedores locales. Se ofrecieron productos como bisutería, calzado, jardinería, postres y chocolatería. Además, hubo un pabellón gastronómico, presentaciones culturales, actividades deportivas y un punto de vacunación COVID-19"
     },
     {
       id: 2,
-      title: "Proyecto de robótica gana concurso nacional",
-      summary: "El equipo RoboCanino de Informática obtuvo el primer lugar.",
-      content: "<p>Tras meses de trabajo intenso...</p>",
+      title: "Feria \"Yo Emprendo\" – UDES",
+      summary: "2024-11-06",
+      content: "2024-11-08",
       author: "Facultad de Ingeniería",
-      date: "25 de abril, 2025",
-      category: "Investigación"
+      date: "Casona El Tabacal, Piedecuesta",
+      category: "Plataforma que reunió a más de 120 emprendimientos locales, ofreciendo espacios de formación, conferencias y talleres para fortalecer las competencias de los emprendedores."
     },
     {
       id: 3,
-      title: "Equipo de baloncesto femenino a la final",
-      summary: "Las 'Panteras' derrotaron a la Universidad del Norte por 78-65.",
-      content: "<p>El equipo femenino de baloncesto...</p>",
+      title: "Homenaje a la Mujer Emprendedora",
+      summary: "2024-03-08",
+      content: "2024-03-08",
       author: "Departamento de Deportes",
-      date: "22 de abril, 2025",
-      category: "Deportes"
+      date: "Centro Cultural del Oriente, Bucaramanga",
+      category: "Evento de reconocimiento y apoyo a las mujeres emprendedoras de Bucaramanga, que incluyó conferencias, talleres de liderazgo, networking y exhibiciones de productos y servicios de emprendedoras locales."
     }
   ];
   

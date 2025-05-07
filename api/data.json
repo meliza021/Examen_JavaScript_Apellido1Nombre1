@@ -1,31 +1,36 @@
 {
-  "campusArticles": [
+  "eventos": [
     {
       "id": 1,
-      "title": "Delicias Caseras",
-      "summary": "te invitamos a probar toda delicia en nuestra panaderia.",
-      "content": "<p>Este sábado 3 de mayo,la panaderia Delicias Caseras va a tener un emotivo evento y es el que ma pan coma no paga nada que esperas no te lo pierdas y visita la pagina que te estan esperando para que tu seas el siguiente en ser el ganador <div>https://Delicias-Caseras.com/es/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.</div></p>",
-      "author": "Sofias Cardenas",
-      "date": "28 de abril, 2025",
-      "category": "Pasteleria"
+      "nombre": "Feria \"Bucara Emprende\"",
+      "fecha_inicio": "2021-11-06",
+      "fecha_fin": "2021-11-06",
+      "ubicacion": "Salón Comunal del Barrio Bucaramanga, Comuna 8",
+      "descripcion": "Evento organizado por el IMEBU que reunió a más de 30 emprendedores locales. Se ofrecieron productos como bisutería, calzado, jardinería, postres y chocolatería. Además, hubo un pabellón gastronómico, presentaciones culturales, actividades deportivas y un punto de vacunación COVID-19."
     },
     {
       "id": 2,
-      "title": "Pinochaso",
-      "summary": "un lugar con los precio mas bajos del pais.",
-      "content": "<p>Tras meses de trabajo intenso, el equipo pinochaso a estado trabajanod para traerte las mejores promociones que nunca podras ver e tu vida  acuerdate de visitarnos en nuestra pagina web si neceistas mas informacion.</p>",
-      "author": "Martines",
-      "date": "25 de abril, 2025",
-      "category": "Tienda"
+      "nombre": "Feria \"Yo Emprendo\" – UDES",
+      "fecha_inicio": "2024-11-06",
+      "fecha_fin": "2024-11-08",
+      "ubicacion": "Campus Bucaramanga de la Universidad de Santander (UDES), Lagos del Cacique",
+      "descripcion": "Plataforma que reunió a más de 120 emprendimientos locales, ofreciendo espacios de formación, conferencias y talleres para fortalecer las competencias de los emprendedores."
     },
     {
       "id": 3,
-      "title": "menos es mas",
-      "summary": "porque todo es barato..",
-      "content": "<p>que donde se encuentra eso ... en donde tu quieras solo encuentra tu camino para llegar a nosotros</p>",
-      "author": "Pepe",
-      "date": "22 de abril, 2025",
-      "category": "mininegocio"
+      "nombre": "ExpoConecta 2024",
+      "fecha_inicio": "2024-07-25",
+      "fecha_fin": "2024-07-25",
+      "ubicacion": "Casona El Tabacal, Piedecuesta",
+      "descripcion": "Evento organizado por la Cámara de Comercio de Bucaramanga que reunió a más de 1.000 negocios de la economía popular. Se ofrecieron espacios de networking, formación empresarial, asesorías de expertos y muestras culturales y gastronómicas."
+    },
+    {
+      "id": 4,
+      "nombre": "Homenaje a la Mujer Emprendedora",
+      "fecha_inicio": "2024-03-08",
+      "fecha_fin": "2024-03-08",
+      "ubicacion": "Centro Cultural del Oriente, Bucaramanga",
+      "descripcion": "Evento de reconocimiento y apoyo a las mujeres emprendedoras de Bucaramanga, que incluyó conferencias, talleres de liderazgo, networking y exhibiciones de productos y servicios de emprendedoras locales."
     }
   ]
 }

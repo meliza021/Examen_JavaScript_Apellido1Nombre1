@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucaramanga Emprende</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script defer src="../components/app.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Bucaramanga Emprende</h1>
+        <nav>
+            <a href="#" id="add-event-btn">Registrar Evento</a>
+        </nav>
+    </header>
+
+    <!-- NUEVA BARRA DE NAVEGACIÓN -->
+    <div class="app-container">
+        <header class="app-container__main-header">
+            <div class="main-header__logo"></div>
+            <nav class="main-header__main-nav">
+                <a href="../index.html" class="main-nav__item">Inicio</a>
+                <a href="../html/two.html" class="main-nav__item">Eventos</a>
+                <a href="#" class="main-nav__item">Registrar</a>
+            </nav>
+        </header>
+    </div>
+
+    <!-- Formulario de eventos -->
+    <section id="event-form-section" class="hidden">
+        <h2>Registrar Evento</h2>
+        <form id="event-form">
+            <label for="event-name">Nombre del evento:</label>
+            <input type="text" id="event-name" required>
+
+            <label for="event-location">Lugar del evento:</label>
+            <input type="text" id="event-location" required>
+
+            <label for="event-start">Fecha de inicio:</label>
+            <input type="date" id="event-start" required>
+
+            <label for="event-end">Fecha de fin:</label>
+            <input type="date" id="event-end" required>
+
+            <label for="event-times">Horarios:</label>
+            <input type="text" id="event-times" required>
+
+            <button type="submit">Guardar Evento</button>
+        </form>
+        <button id="cancel-event-form-btn">Cancelar</button>
+    </section>
+
+    <!-- Formulario de emprendimientos -->
+    <section id="entrepreneur-form-section" class="hidden">
+        <h2>Registrar Emprendimiento</h2>
+        <form id="entrepreneur-form">
+            <label for="entrepreneur-name">Nombre del emprendimiento:</label> 
+            <input type="text" id="entrepreneur-name" required>
+
+            <label for="entrepreneur-category">Categoría:</label>
+            <input type="text" id="entrepreneur-category" required>
+
+            <label for="entrepreneur-description">Descripción:</label>
+            <textarea id="entrepreneur-description" required></textarea>
+
+            <label for="entrepreneur-social">Enlace a red social:</label>
+            <input type="url" id="entrepreneur-social">
+
+            <h3>Producto o Servicio</h3>
+            <label for="product-name">Nombre del producto/servicio:</label>
+            <input type="text" id="product-name" required>
+
+            <label for="product-price">Precio:</label>
+            <input type="number" id="product-price" required>
+
+            <label for="product-description">Descripción:</label>
+            <textarea id="product-description" required></textarea>
+
+            <label for="product-photo">Foto del producto:</label>
+            <input type="file" id="product-photo" accept="image/*">
+
+            <button type="submit">Guardar Emprendimiento</button>
+        </form>
+        <button id="cancel-entrepreneur-form-btn">Cancelar</button>
+    </section>
+
+    <!-- Sección para mostrar los eventos y emprendimientos -->
+    <section id="events-section">
+        <h2>Eventos Registrados</h2>
+        <div id="events-list"></div>
+    </section>
+</body>
+
+</html>

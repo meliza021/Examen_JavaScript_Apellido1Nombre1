@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus News - Portal de Noticias Universitarias</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../main.js" type="module"></script>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <img src="./123.jpg" alt="Logo Campus News">
+            <h1>Campus News</h1>
+        </div>
+    </header>
+
+    <!-- Nuevo bloque de navegación -->
+    <div class="app-container">
+        <header class="app-container__main-header">
+            <div class="main-header__logo">          
+            </div>
+            <nav class="main-header__main-nav">
+              <a href="../index.html" class="main-nav__item">Inicio</a>
+              <a href="#" class="main-nav__item">Eventos</a>
+              <a href="../html/final.html" class="main-nav__item">Registrar</a>
+            </nav>
+        </header>
+    </div>
+    
+    <main>
+        <campus-news-app>
+            <campus-category-filters></campus-category-filters>
+            <div class="content-container">
+                <campus-news-list></campus-news-list>
+                <campus-news-detail></campus-news-detail>
+            </div>
+            <campus-debug-panel></campus-debug-panel>
+        </campus-news-app>
+    </main>
+    
+    <footer>
+        <p>© 2025 Campus News - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

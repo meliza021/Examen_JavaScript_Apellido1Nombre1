@@ -1,0 +1,203 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdf7f7;
+    color: #333;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+header {
+    background-color: #FFD1DC; /* Rosa pastel */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #FF69B4;
+}
+
+header h1 {
+    color: #FF1493; /* Rosa brillante */
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    background-color: #FF91A4;
+    border-radius: 50px;
+    margin-top: 15px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #FF1493;
+}
+
+/* Formulario de eventos */
+form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+form label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #6B2B8C;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #FFC0CB;
+    margin-bottom: 15px;
+    background-color: #fff0f8;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #32CD32; /* Verde pastel */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #228B22;
+}
+
+/* Botón cancelar */
+button#cancel-event-form-btn, button#cancel-entrepreneur-form-btn {
+    background-color: #FFB6C1; /* Rosa muy suave */
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button#cancel-event-form-btn:hover, button#cancel-entrepreneur-form-btn:hover {
+    background-color: #FF69B4;
+}
+
+/* Sección de eventos */
+#events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.event-card h3 {
+    color: #FF69B4;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.event-card p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.event-card .remove-btn {
+    background-color: #FF4500; /* Naranja brillante */
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.event-card .remove-btn:hover {
+    background-color: #FF6347; /* Rojo anaranjado */
+}
+
+/* Ocultar secciones cuando no se necesiten */
+.hidden {
+    display: none;
+}
+
+/* Diseño general */
+section {
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+h2 {
+    color: #6B2B8C;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.app-container {
+    background-color: #f5f5f5;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.app-container__main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.main-header__logo {
+    width: 150px;
+    height: 50px;
+    background-image: url('../images/logo.png'); /* Puedes ajustar esto */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.main-header__main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav__item {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav__item:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
