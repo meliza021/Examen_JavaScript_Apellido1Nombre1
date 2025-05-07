@@ -36,7 +36,7 @@ function loadFallbackData() {
       id: 1,
       title: "Delicias caseras",
       summary: "te invitamos a probar toda delicia en nuestra panaderia.",
-      content: "<p>Este sábado 3 de mayo, la àsteleria delicias caseras abre sus puertas...</p>",
+      content: "<p>Este sábado 3 de mayo, la àsteleria delicias caseras abre sus puertas sss...</p>",
       author: "Sofia Cardenas ",
       date: "28 de abril, 2025",
       category: "pasteleria"
