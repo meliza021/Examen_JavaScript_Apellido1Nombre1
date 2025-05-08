@@ -3,7 +3,7 @@ class CampusDebugPanel extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
-    
+
     this.state = {
       isVisible: false,
       category: null,
@@ -11,103 +11,100 @@ class CampusDebugPanel extends HTMLElement {
       total: 0,
       filtered: 0
     };
-    
+
     shadow.innerHTML = `
       <style>
         :host {
           display: block;
           margin-top: 1.5rem;
         }
-        
+
         .debug-container {
-          background-color: #4a4a4a;
-          color: white;
-          border-radius: 4px;
+          background-color: #f3f0fa;
+          color: #4b2e83;
+          border-radius: 12px;
           overflow: hidden;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
-        
+
         .debug-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 10px 15px;
-          background-color: #e83e8c;
+          padding: 12px 16px;
+          background-color: #b39ddb;
           cursor: pointer;
         }
-        
+
         .debug-title {
           display: flex;
           align-items: center;
           gap: 8px;
           font-weight: bold;
         }
-        
+
         .debug-title svg {
-          width: 16px;
-          height: 16px;
-          fill: currentColor;
+          width: 18px;
+          height: 18px;
+          fill: white;
         }
-        
+
         .toggle-btn {
           background: transparent;
           border: none;
           color: white;
+          font-size: 18px;
           cursor: pointer;
-          font-size: 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 24px;
-          height: 24px;
           border-radius: 50%;
-          transition: background-color 0.2s;
+          transition: background-color 0.2s ease;
         }
-        
+
         .toggle-btn:hover {
           background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .debug-content {
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease-in-out;
+          background-color: #ede7f6;
         }
-        
+
         .debug-content.visible {
           max-height: 200px;
         }
-        
+
         .debug-info {
           padding: 15px;
           font-family: monospace;
           font-size: 14px;
+          color: #4b2e83;
         }
-        
+
         table {
           width: 100%;
           border-collapse: collapse;
         }
-        
+
         tr:not(:last-child) {
-          border-bottom: 1px solid #666;
+          border-bottom: 1px solid #d1c4e9;
         }
-        
+
         td {
-          padding: 8px 5px;
+          padding: 8px 6px;
         }
-        
+
         td:first-child {
           font-weight: bold;
-          color: #f8bbda;
+          color: #7e57c2;
           width: 40%;
         }
-        
+
         [role="button"] {
           cursor: pointer;
         }
       </style>
-      
+
       <div class="debug-container" aria-live="polite">
         <div class="debug-header" role="button" tabindex="0" aria-expanded="false" aria-controls="debug-content">
           <div class="debug-title">
@@ -145,15 +142,14 @@ class CampusDebugPanel extends HTMLElement {
         </div>
       </div>
     `;
-    
-    // Vincular métodos
+
     this.handleDebugUpdate = this.handleDebugUpdate.bind(this);
     this.toggleVisibility = this.toggleVisibility.bind(this);
   }
-  
+
   connectedCallback() {
     document.addEventListener('campus:debug-update', this.handleDebugUpdate);
-    
+
     const toggleBtn = this.shadowRoot.querySelector('.debug-header');
     toggleBtn.addEventListener('click', this.toggleVisibility);
     toggleBtn.addEventListener('keydown', (e) => {
@@ -163,40 +159,31 @@ class CampusDebugPanel extends HTMLElement {
       }
     });
   }
-  
+
   disconnectedCallback() {
     document.removeEventListener('campus:debug-update', this.handleDebugUpdate);
     this.shadowRoot.querySelector('.debug-header').removeEventListener('click', this.toggleVisibility);
   }
-  
+
   handleDebugUpdate(event) {
     const { category, selectedId, total, filtered } = event.detail;
-    
-    this.state = {
-      ...this.state,
-      category,
-      selectedId,
-      total,
-      filtered
-    };
-    
+    this.state = { ...this.state, category, selectedId, total, filtered };
     this.updateUI();
   }
-  
+
   updateUI() {
     this.shadowRoot.querySelector('#current-category').textContent = this.state.category || '—';
     this.shadowRoot.querySelector('#selected-id').textContent = this.state.selectedId || '—';
     this.shadowRoot.querySelector('#total-articles').textContent = this.state.total;
     this.shadowRoot.querySelector('#filtered-articles').textContent = this.state.filtered;
   }
-  
+
   toggleVisibility() {
     this.state.isVisible = !this.state.isVisible;
-    
     const debugContent = this.shadowRoot.querySelector('#debug-content');
     const toggleButton = this.shadowRoot.querySelector('.toggle-btn span');
     const header = this.shadowRoot.querySelector('.debug-header');
-    
+
     if (this.state.isVisible) {
       debugContent.classList.add('visible');
       toggleButton.textContent = '−';

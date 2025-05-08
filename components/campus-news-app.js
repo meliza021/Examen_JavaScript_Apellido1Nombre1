@@ -18,20 +18,26 @@ class CampusNewsApp extends HTMLElement {
           display: block;
           font-family: var(--font-primary, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
         }
-        
+
         .app-container {
-          background-color: white;
-          border-radius: 8px;
-          box-shadow: 0 4px 10px rgba(232, 62, 140, 0.2);
-          overflow: hidden;
+          background: linear-gradient(135deg, #ffffff, #f0e6ff);
+          border-radius: 16px;
+          box-shadow: 0 6px 18px rgba(107, 78, 255, 0.2);
+          padding: 1rem;
           margin-bottom: 2rem;
+          transition: background 0.3s ease;
         }
-        
+
+        .app-container:hover {
+          background: linear-gradient(135deg, #f9f4ff, #e0cfff);
+        }
+
         ::slotted(.content-container) {
           display: flex;
           flex-wrap: wrap;
+          gap: 2rem;
         }
-        
+
         @media (max-width: 768px) {
           ::slotted(.content-container) {
             flex-direction: column;
@@ -52,14 +58,12 @@ class CampusNewsApp extends HTMLElement {
   }
   
   connectedCallback() {
-    // Escuchar eventos personalizados
     document.addEventListener('campus:category-change', this.handleCategoryChange);
     document.addEventListener('campus:article-select', this.handleArticleSelect);
     document.addEventListener('campus:data-loaded', this.handleDataLoaded);
   }
   
   disconnectedCallback() {
-    // Limpiar listeners al desmontar el componente
     document.removeEventListener('campus:category-change', this.handleCategoryChange);
     document.removeEventListener('campus:article-select', this.handleArticleSelect);
     document.removeEventListener('campus:data-loaded', this.handleDataLoaded);
@@ -68,13 +72,12 @@ class CampusNewsApp extends HTMLElement {
   handleDataLoaded(event) {
     this.state.articles = event.detail.articles;
     this.filterArticles();
-    
-    // Emitir evento para actualizar la UI
+
     this.dispatchEvent(new CustomEvent('campus:app-ready', {
       bubbles: true,
       composed: true
     }));
-    
+
     this.updateDebugInfo();
   }
   
@@ -86,8 +89,7 @@ class CampusNewsApp extends HTMLElement {
   
   handleArticleSelect(event) {
     this.state.currentArticleId = event.detail.id;
-    
-    // Emitir evento para actualizar el detalle del artículo
+
     this.dispatchEvent(new CustomEvent('campus:article-updated', {
       detail: {
         article: this.state.articles.find(article => article.id === this.state.currentArticleId)
@@ -95,7 +97,7 @@ class CampusNewsApp extends HTMLElement {
       bubbles: true,
       composed: true
     }));
-    
+
     this.updateDebugInfo();
   }
   
@@ -107,8 +109,7 @@ class CampusNewsApp extends HTMLElement {
         article => article.category === this.state.currentCategory
       );
     }
-    
-    // Emitir evento para actualizar la lista de artículos
+
     this.dispatchEvent(new CustomEvent('campus:articles-filtered', {
       detail: {
         articles: this.state.filteredArticles,
@@ -120,7 +121,6 @@ class CampusNewsApp extends HTMLElement {
   }
   
   updateDebugInfo() {
-    // Emitir evento para actualizar el panel de depuración
     this.dispatchEvent(new CustomEvent('campus:debug-update', {
       detail: {
         category: this.state.currentCategory,

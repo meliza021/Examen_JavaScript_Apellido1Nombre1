@@ -6,15 +6,16 @@ import './components/campus-news-item.js';
 import './components/campus-news-detail.js';
 import './components/campus-debug-panel.js';
 
-// Cargar los datos desde el archivo JSON
 let campusArticles = [];
 
+// Cargar noticias desde JSON y combinar con eventos de localStorage
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    campusArticles = data.campusArticles;
-    
-    // Dispatch un evento personalizado para notificar que los datos están listos
+    const jsonArticles = data.campusArticles || [];
+    const userEvents = loadUserEventsAsArticles();
+    campusArticles = [...jsonArticles, ...userEvents];
+
     document.dispatchEvent(new CustomEvent('campus:data-loaded', {
       detail: { articles: campusArticles },
       bubbles: true,
@@ -23,14 +24,44 @@ fetch('data.json')
   })
   .catch(error => {
     console.error('Error al cargar los datos:', error);
-    
-    // En caso de error, cargar datos de respaldo
     loadFallbackData();
-  });
+});
 
-// Datos de respaldo en caso de que falle la carga del JSON
+function loadUserEventsAsArticles() {
+  const events = JSON.parse(localStorage.getItem('events')) || [];
+
+  return events.map(ev => ({
+    id: ev.id,
+    title: ev.name,
+    summary: ev.startDate,
+    content: `
+      <p><strong>Lugar:</strong> ${ev.location}</p>
+      <p><strong>Desde:</strong> ${ev.startDate}</p>
+      <p><strong>Hasta:</strong> ${ev.endDate}</p>
+      <p><strong>Horario:</strong> ${ev.times}</p>
+      ${ev.entrepreneurs.length ? `<h4>Emprendimientos:</h4>` : ''}
+      ${ev.entrepreneurs.map(ent => `
+        <div>
+          <p><strong>Nombre:</strong> ${ent.name}</p>
+          <p><strong>Categoría:</strong> ${ent.category}</p>
+          <p><strong>Descripción:</strong> ${ent.description}</p>
+          <p><strong>Red social:</strong> <a href="${ent.social}" target="_blank">${ent.social}</a></p>
+          <p><strong>Producto:</strong> ${ent.product.name}</p>
+          <p><strong>Precio:</strong> $${ent.product.price}</p>
+          <p><strong>Descripción:</strong> ${ent.product.description}</p>
+          ${ent.product.photo ? `<img src="${ent.product.photo}" style="max-width: 100px;">` : ''}
+        </div>
+      `).join('')}
+    `,
+    author: "Usuario registrado",
+    date: ev.startDate,
+    category: "Eventos del usuario"
+  }));
+}
+
+// Datos de respaldo en caso de error
 function loadFallbackData() {
-  campusArticles = [
+  const fallback = [
     {
       id: 1,
       title: "Feria \"Bucara Emprende\"",
@@ -38,28 +69,14 @@ function loadFallbackData() {
       content: "<p>2021-11-06</p>",
       author: "Oficina de Admisiones",
       date: "Salón Comunal del Barrio Bucaramanga, Comuna 8",
-      category: "Evento organizado por el IMEBU que reunió a más de 30 emprendedores locales. Se ofrecieron productos como bisutería, calzado, jardinería, postres y chocolatería. Además, hubo un pabellón gastronómico, presentaciones culturales, actividades deportivas y un punto de vacunación COVID-19"
-    },
-    {
-      id: 2,
-      title: "Feria \"Yo Emprendo\" – UDES",
-      summary: "2024-11-06",
-      content: "2024-11-08",
-      author: "Facultad de Ingeniería",
-      date: "Casona El Tabacal, Piedecuesta",
-      category: "Plataforma que reunió a más de 120 emprendimientos locales, ofreciendo espacios de formación, conferencias y talleres para fortalecer las competencias de los emprendedores."
-    },
-    {
-      id: 3,
-      title: "Homenaje a la Mujer Emprendedora",
-      summary: "2024-03-08",
-      content: "2024-03-08",
-      author: "Departamento de Deportes",
-      date: "Centro Cultural del Oriente, Bucaramanga",
-      category: "Evento de reconocimiento y apoyo a las mujeres emprendedoras de Bucaramanga, que incluyó conferencias, talleres de liderazgo, networking y exhibiciones de productos y servicios de emprendedoras locales."
+      category: "Evento organizado por el IMEBU..."
     }
+    // ...otros artículos
   ];
-  
+
+  const userEvents = loadUserEventsAsArticles();
+  campusArticles = [...fallback, ...userEvents];
+
   document.dispatchEvent(new CustomEvent('campus:data-loaded', {
     detail: { articles: campusArticles },
     bubbles: true,
@@ -67,7 +84,6 @@ function loadFallbackData() {
   }));
 }
 
-// Asegurar que los Web Components se hayan cargado antes de inicializar
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Campus News App iniciada');
 });

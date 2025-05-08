@@ -10,22 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelEventFormBtn = document.getElementById('cancel-event-form-btn');
     const cancelEntrepreneurFormBtn = document.getElementById('cancel-entrepreneur-form-btn');
 
-    // Eventos
+    // Mostrar formulario de evento
     addEventBtn.addEventListener('click', () => {
         eventFormSection.classList.remove('hidden');
         entrepreneurFormSection.classList.add('hidden');
     });
 
+    // Cancelar evento
     cancelEventFormBtn.addEventListener('click', () => {
         eventFormSection.classList.add('hidden');
         eventForm.reset();
     });
 
+    // Cancelar emprendimiento
     cancelEntrepreneurFormBtn.addEventListener('click', () => {
         entrepreneurFormSection.classList.add('hidden');
         entrepreneurForm.reset();
     });
 
+    // Guardar evento
     eventForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -48,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderEvents();
     });
 
+    // Guardar emprendimiento asociado a un evento
     entrepreneurForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -86,10 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (productPhotoInput.files[0]) {
             reader.readAsDataURL(productPhotoInput.files[0]);
         } else {
-            reader.onload(); // Llama directamente si no hay foto
+            reader.onload(); // Si no hay imagen, aún así continúa
         }
     });
 
+    // Funciones auxiliares
     function getEvents() {
         return JSON.parse(localStorage.getItem('events')) || [];
     }
@@ -142,10 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Inicialización
+    // Inicializar vista con los eventos guardados
     renderEvents();
 
-    // Acceso directo al formulario de emprendimientos (para pruebas)
+    // Atajo para mostrar el formulario de emprendimientos
     document.addEventListener('keydown', (e) => {
         if (e.key === 'e') {
             entrepreneurFormSection.classList.remove('hidden');

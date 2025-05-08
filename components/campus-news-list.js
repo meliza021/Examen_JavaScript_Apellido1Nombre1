@@ -9,40 +9,41 @@ class CampusNewsList extends HTMLElement {
     
     shadow.innerHTML = `
       <style>
-        :host {
-          display: block;
-          flex: 1;
-          min-width: 300px;
-        }
-        
-        .news-list {
-          background-color: white;
-          border-radius: 4px;
-          box-shadow: 0 2px 5px rgba(232, 62, 140, 0.1);
-          max-height: 600px;
-          overflow-y: auto;
-        }
-        
-        .list-header {
-          padding: 15px;
-          background-color: #f8bbda;
-          color: #c71f66;
-          font-weight: bold;
-          border-bottom: 1px solid #ffc0cb;
-        }
-        
-        .no-articles {
-          padding: 30px;
-          text-align: center;
-          color: #777;
-          font-style: italic;
-        }
-      </style>
-      
-      <div class="news-list">
-        <div class="list-header">Últimas Noticias</div>
-        <div id="articles-container"></div>
-      </div>
+  :host {
+    display: block;
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .news-list {
+    background-color: #f4f0fc; /* Morado suave */
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(142, 68, 173, 0.1); /* Morado oscuro con sombra suave */
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  
+  .list-header {
+    padding: 15px;
+    background-color: #9b59b6; /* Morado fuerte */
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid #6c3483; /* Morado oscuro */
+  }
+  
+  .no-articles {
+    padding: 30px;
+    text-align: center;
+    color: #6c3483; /* Morado oscuro */
+    font-style: italic;
+  }
+</style>
+
+<div class="news-list">
+  <div class="list-header">Últimas Noticias</div>
+  <div id="articles-container"></div>
+</div>
+
     `;
     
     // Vincular métodos

@@ -1,26 +1,26 @@
-// Componente para mostrar el detalle de un artículo seleccionado
 class CampusNewsDetail extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
-    
+
     shadow.innerHTML = `
       <style>
         :host {
           display: block;
           flex: 2;
           min-width: 400px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         .detail-container {
-          background-color: white;
-          border-radius: 4px;
-          box-shadow: 0 2px 5px rgba(232, 62, 140, 0.1);
+          background-color: #f3e8ff;
+          border-radius: 1rem;
+          box-shadow: 0 4px 10px rgba(160, 100, 200, 0.2);
           padding: 20px;
           height: 100%;
           position: relative;
         }
-        
+
         .placeholder {
           display: flex;
           flex-direction: column;
@@ -28,61 +28,68 @@ class CampusNewsDetail extends HTMLElement {
           align-items: center;
           height: 100%;
           min-height: 300px;
-          color: #999;
+          color: #8b5cf6;
           text-align: center;
         }
-        
+
         .placeholder svg {
           margin-bottom: 15px;
-          fill: #ffc0cb;
+          fill: white;
           width: 50px;
           height: 50px;
         }
-        
+
         .article {
           display: none;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        
+
         .article.visible {
           display: block;
+          opacity: 1;
+          transform: translateY(0);
         }
-        
+
         .header {
           margin-bottom: 20px;
-          border-bottom: 2px solid #ffd6e7;
+          border-bottom: 2px solid #ddd6fe;
           padding-bottom: 15px;
         }
-        
+
         h2 {
-          color: #e83e8c;
+          color: #7e22ce;
           margin: 0 0 10px;
-          font-size: 1.5rem;
+          font-size: 1.7rem;
         }
-        
+
         .meta {
           display: flex;
           justify-content: space-between;
-          color: #777;
+          color: #6b21a8;
           font-size: 0.9rem;
         }
-        
+
         .category-badge {
-          background-color: #ffd6e7;
-          color: #c71f66;
-          padding: 3px 10px;
-          border-radius: 15px;
-          font-weight: 500;
+          background-color: white;
+          color: #6b21a8;
+          padding: 4px 12px;
+          border-radius: 999px;
+          font-weight: 600;
+          font-size: 10px;
         }
-        
+
         .content {
-          line-height: 1.6;
+          line-height: 1.7;
+          color: #4c1d95;
         }
-        
+
         .content p {
           margin-bottom: 15px;
         }
       </style>
-      
+
       <div class="detail-container">
         <div id="placeholder" class="placeholder">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -91,7 +98,7 @@ class CampusNewsDetail extends HTMLElement {
           </svg>
           <p>Selecciona una noticia para ver los detalles</p>
         </div>
-        
+
         <div id="article" class="article">
           <div class="header">
             <h2 id="title"></h2>
@@ -104,42 +111,50 @@ class CampusNewsDetail extends HTMLElement {
         </div>
       </div>
     `;
-    
+
     this.handleArticleUpdated = this.handleArticleUpdated.bind(this);
   }
-  
+
   connectedCallback() {
     document.addEventListener('campus:article-updated', this.handleArticleUpdated);
   }
-  
+
   disconnectedCallback() {
     document.removeEventListener('campus:article-updated', this.handleArticleUpdated);
   }
-  
+
   handleArticleUpdated(event) {
     const article = event.detail.article;
-    
+
     if (!article) {
       this.showPlaceholder();
       return;
     }
-    
+
     this.shadowRoot.querySelector('#title').textContent = article.title;
     this.shadowRoot.querySelector('#author-date').textContent = `${article.author} • ${article.date}`;
     this.shadowRoot.querySelector('#category').textContent = article.category;
     this.shadowRoot.querySelector('#content').innerHTML = article.content;
-    
+
     this.showArticle();
   }
-  
+
   showPlaceholder() {
     this.shadowRoot.querySelector('#placeholder').style.display = 'flex';
-    this.shadowRoot.querySelector('#article').classList.remove('visible');
+    const article = this.shadowRoot.querySelector('#article');
+    article.classList.remove('visible');
+    setTimeout(() => (article.style.display = 'none'), 300); // para que se desvanezca
   }
-  
+
   showArticle() {
-    this.shadowRoot.querySelector('#placeholder').style.display = 'none';
-    this.shadowRoot.querySelector('#article').classList.add('visible');
+    const placeholder = this.shadowRoot.querySelector('#placeholder');
+    placeholder.style.display = 'none';
+
+    const article = this.shadowRoot.querySelector('#article');
+    article.style.display = 'block'; // primero se muestra
+    requestAnimationFrame(() => {
+      article.classList.add('visible'); // luego se activa animación
+    });
   }
 }
 
